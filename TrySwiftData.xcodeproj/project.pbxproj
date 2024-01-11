@@ -20,6 +20,8 @@
 		2C5730482B4EE81C008D27D2 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5730472B4EE81C008D27D2 /* RecipeModel.swift */; };
 		2C57304A2B4EE890008D27D2 /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5730492B4EE890008D27D2 /* AddRecipeViewController.swift */; };
 		2C57304C2B4EF958008D27D2 /* RecipeProcessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57304B2B4EF958008D27D2 /* RecipeProcessViewController.swift */; };
+		2C67FE502B4F9D7E005075A4 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67FE4E2B4F9D7E005075A4 /* TableViewCell.swift */; };
+		2C67FE512B4F9D7E005075A4 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C67FE4F2B4F9D7E005075A4 /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		2C5730472B4EE81C008D27D2 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		2C5730492B4EE890008D27D2 /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		2C57304B2B4EF958008D27D2 /* RecipeProcessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeProcessViewController.swift; sourceTree = "<group>"; };
+		2C67FE4E2B4F9D7E005075A4 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		2C67FE4F2B4F9D7E005075A4 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 				2C5730392B4EE491008D27D2 /* Info.plist */,
 				2C5730432B4EE7CD008D27D2 /* CollectionViewCell.swift */,
 				2C5730442B4EE7CD008D27D2 /* CollectionViewCell.xib */,
+				2C67FE4E2B4F9D7E005075A4 /* TableViewCell.swift */,
+				2C67FE4F2B4F9D7E005075A4 /* TableViewCell.xib */,
 			);
 			path = TrySwiftData;
 			sourceTree = "<group>";
@@ -147,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C5730382B4EE491008D27D2 /* LaunchScreen.storyboard in Resources */,
+				2C67FE512B4F9D7E005075A4 /* TableViewCell.xib in Resources */,
 				2C5730352B4EE491008D27D2 /* Assets.xcassets in Resources */,
 				2C5730462B4EE7CD008D27D2 /* CollectionViewCell.xib in Resources */,
 				2C5730332B4EE490008D27D2 /* Main.storyboard in Resources */,
@@ -165,6 +172,7 @@
 				2C5730302B4EE490008D27D2 /* ViewController.swift in Sources */,
 				2C5730422B4EE77F008D27D2 /* SwiftDataService.swift in Sources */,
 				2C57304C2B4EF958008D27D2 /* RecipeProcessViewController.swift in Sources */,
+				2C67FE502B4F9D7E005075A4 /* TableViewCell.swift in Sources */,
 				2C5730452B4EE7CD008D27D2 /* CollectionViewCell.swift in Sources */,
 				2C57302C2B4EE48F008D27D2 /* AppDelegate.swift in Sources */,
 				2C57302E2B4EE490008D27D2 /* SceneDelegate.swift in Sources */,

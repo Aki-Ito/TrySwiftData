@@ -60,6 +60,14 @@ class ViewController: UIViewController {
             return nil
         }
     }
+    
+    
+    @IBAction func tappedAddButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nvc = storyboard.instantiateViewController(withIdentifier: "AddNVC") as! UINavigationController
+        let vc = nvc.viewControllers[0] as! AddRecipeViewController
+        self.present(vc, animated: true)
+    }
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -81,6 +89,14 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         let horizontalSpace : CGFloat = 20
         let cellSize : CGFloat = self.view.bounds.width / 2 - horizontalSpace
         return CGSize(width: cellSize, height: cellSize)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nvc = storyboard.instantiateViewController(withIdentifier: "AddNVC") as! UINavigationController
+        let vc = nvc.viewControllers[0] as! AddRecipeViewController
+        vc.recipeModel = recipeModels[indexPath.row]
+        self.present(vc, animated: true)
     }
 }
 

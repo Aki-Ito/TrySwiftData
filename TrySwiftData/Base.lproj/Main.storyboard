@@ -40,7 +40,7 @@
                     <navigationItem key="navigationItem" id="5EG-72-czX">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KWD-0h-sUg">
                             <connections>
-                                <segue destination="cWN-Q3-yZR" kind="presentation" id="zba-eY-dEk"/>
+                                <action selector="tappedAddButton:" destination="BYZ-38-t0r" id="Ciq-Xq-G7a"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -57,11 +57,11 @@
             <objects>
                 <viewController id="eNQ-Np-AGo" customClass="AddRecipeViewController" customModule="TrySwiftData" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d7g-xD-zIL">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmQ-yM-olj">
-                                <rect key="frame" x="0.0" y="56" width="386" height="386"/>
+                                <rect key="frame" x="0.0" y="103" width="386" height="386"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pmQ-yM-olj" secondAttribute="height" multiplier="1:1" id="dFm-Gi-IOf"/>
                                 </constraints>
@@ -74,11 +74,11 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZX8-RI-3EN">
-                                <rect key="frame" x="0.0" y="556" width="393" height="286"/>
+                                <rect key="frame" x="0.0" y="603" width="393" height="215"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="料理タイトル名を追加" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O6r-Oy-SoT">
-                                <rect key="frame" x="8" y="482" width="159" height="34"/>
+                                <rect key="frame" x="8" y="529" width="159" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -113,8 +113,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addImageButton" destination="pmQ-yM-olj" id="F0a-Xm-M8D"/>
+                        <outlet property="tableView" destination="ZX8-RI-3EN" id="b5B-WM-MKN"/>
                         <outlet property="titleTextField" destination="O6r-Oy-SoT" id="dyM-dj-lBI"/>
-                        <segue destination="Nlx-gF-qKg" kind="presentation" identifier="toProcess" id="I2b-gj-p9p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1a5-yJ-TLz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -126,11 +126,11 @@
             <objects>
                 <viewController id="Nlx-gF-qKg" customClass="RecipeProcessViewController" customModule="TrySwiftData" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qph-sn-3is">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJP-Np-McU">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="393"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="393"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KJP-Np-McU" secondAttribute="height" multiplier="1:1" id="NAk-RD-JA9"/>
                                 </constraints>
@@ -138,7 +138,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="イメージ画像を追加"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MUJ-2D-xHx">
-                                <rect key="frame" x="0.0" y="393" width="393" height="449"/>
+                                <rect key="frame" x="0.0" y="496" width="393" height="322"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -158,10 +158,21 @@
                             <constraint firstItem="rfC-Vl-JxV" firstAttribute="trailing" secondItem="MUJ-2D-xHx" secondAttribute="trailing" id="tGt-2m-7pi"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Us3-7z-o5c">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="fn1-rM-Cwv">
+                            <connections>
+                                <action selector="tappedSaveButton:" destination="Nlx-gF-qKg" id="nqv-yk-tOe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addImageButton" destination="KJP-Np-McU" id="He5-NB-SeF"/>
+                        <outlet property="textView" destination="MUJ-2D-xHx" id="D7R-TU-s1L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0p4-Zx-lbP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3692.3664122137402" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="970" y="685"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="486-l9-4qI">
@@ -187,7 +198,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cWN-Q3-yZR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JLY-aD-0J1">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -198,6 +209,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lc0-w0-Zg1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1846.564885496183" y="-2.1126760563380285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CBS-Wb-Cj9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UnV-JR-BJ6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nri-UJ-7sK">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Nlx-gF-qKg" kind="relationship" relationship="rootViewController" id="gQm-C1-v2y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wh0-t2-wwM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47" y="685"/>
         </scene>
     </scenes>
     <resources>

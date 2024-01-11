@@ -45,11 +45,10 @@ class SwiftDataService{
             }
         }
     }
-//    
-//    func updateVideo(videoModel: VideoModel, newTitle: String, newMemo: String){
-//        videoModel.title = newTitle
-//        videoModel.memo = newMemo
-//    }
+    
+    func updateRecipe(model: RecipeModel,  cookProcess: [CookProcess]){
+        model.cookProcess = cookProcess
+    }
 //    
 //    func deleteVideo(videoModel: VideoModel){
 //        if let context{

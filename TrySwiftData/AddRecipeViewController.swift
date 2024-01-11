@@ -11,6 +11,9 @@ class AddRecipeViewController: UIViewController {
     
     @IBOutlet weak var addImageButton: UIButton!
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
+    public var recipeModel : RecipeModel?
+    
     let fileManagerService = FileManagerService.shared
     let swiftDataService = SwiftDataService.shared
     
@@ -35,7 +38,7 @@ class AddRecipeViewController: UIViewController {
     
     
     @IBAction func tappedAddProcessButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "toProcess", sender: nil)
+        
     }
     
     private func saveContents(){
@@ -59,6 +62,14 @@ class AddRecipeViewController: UIViewController {
         let preNvc = self.presentingViewController as! UINavigationController
         let vc = preNvc.viewControllers[0] as! ViewController
         vc.fetchData()
+    }
+    
+    private func moveToProcess(model: RecipeModel){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nvc = storyboard.instantiateViewController(withIdentifier: "AddNVC") as! UINavigationController
+        let vc = nvc.viewControllers[0] as! RecipeProcessViewController
+        vc.recipeModel = self.recipeModel
+        self.present(vc, animated: true)
     }
     
 }
@@ -86,5 +97,20 @@ extension AddRecipeViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension AddRecipeViewController:UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        recipeModel?.cookProcess?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40
     }
 }

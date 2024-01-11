@@ -35,8 +35,13 @@ class FileManagerService{
         }
         
         let myAppDirectory = docDirectory.appending(path: "MyAppContents")
-        let fullPath = myAppDirectory.appending(path: fileName)
+        
         do{
+            if !fileManager.fileExists(atPath: myAppDirectory.path) {
+                try fileManager.createDirectory(at: myAppDirectory, withIntermediateDirectories: true, attributes: nil)
+            }
+            let fullPath = myAppDirectory.appending(path: fileName)
+            
             try file.write(to: fullPath)
         }catch{
             print("error: no directory")

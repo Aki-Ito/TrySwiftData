@@ -17,7 +17,7 @@ class AddRecipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        titleTextField.delegate = self
     }
     
     @IBAction func tappedImageButton(_ sender: Any) {
@@ -30,11 +30,12 @@ class AddRecipeViewController: UIViewController {
     
     
     @IBAction func tappedSaveButton(_ sender: Any) {
-        
+        self.saveContents()
     }
     
     
     @IBAction func tappedAddProcessButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "toProcess", sender: nil)
     }
     
     private func saveContents(){
@@ -42,6 +43,22 @@ class AddRecipeViewController: UIViewController {
         let data = image.jpegData(compressionQuality: 0.2)
         let fileName = titleTextField.text!
         fileManagerService.saveFile(file: data!, fileName: fileName)
+        
+        guard let docDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            print("error: no directory")
+            return
+        }
+        
+        let myAppDirectory = docDirectory.appending(path: "MyAppContents")
+        let titleImagePath = myAppDirectory.appending(path: fileName)
+        swiftDataService.saveRecipe(titleImagePath: titleImagePath.path(), title: fileName, cookProcess: nil)
+        self.getPreviousController()
+    }
+    
+    private func getPreviousController(){
+        let preNvc = self.presentingViewController as! UINavigationController
+        let vc = preNvc.viewControllers[0] as! ViewController
+        vc.fetchData()
     }
     
 }
@@ -62,5 +79,12 @@ extension AddRecipeViewController: UIImagePickerControllerDelegate, UINavigation
         addImageButton.contentVerticalAlignment = .fill
         addImageButton.clipsToBounds = true
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension AddRecipeViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

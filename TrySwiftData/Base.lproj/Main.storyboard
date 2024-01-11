@@ -44,6 +44,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="XLK-gj-mO8" id="QoW-Ue-RhX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -111,6 +114,7 @@
                     <connections>
                         <outlet property="addImageButton" destination="pmQ-yM-olj" id="F0a-Xm-M8D"/>
                         <outlet property="titleTextField" destination="O6r-Oy-SoT" id="dyM-dj-lBI"/>
+                        <segue destination="Nlx-gF-qKg" kind="presentation" identifier="toProcess" id="I2b-gj-p9p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1a5-yJ-TLz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -122,11 +126,11 @@
             <objects>
                 <viewController id="Nlx-gF-qKg" customClass="RecipeProcessViewController" customModule="TrySwiftData" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qph-sn-3is">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJP-Np-McU">
-                                <rect key="frame" x="0.0" y="59" width="393" height="393"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="393"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="KJP-Np-McU" secondAttribute="height" multiplier="1:1" id="NAk-RD-JA9"/>
                                 </constraints>
@@ -134,7 +138,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="イメージ画像を追加"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MUJ-2D-xHx">
-                                <rect key="frame" x="0.0" y="452" width="393" height="366"/>
+                                <rect key="frame" x="0.0" y="393" width="393" height="449"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>

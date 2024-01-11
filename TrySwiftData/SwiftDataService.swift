@@ -26,25 +26,25 @@ class SwiftDataService{
         }
     }
     
-    func saveVideo(titleImagePath: String, title: String, cookProcess: CookProcess?){
+    func saveRecipe(titleImagePath: String, title: String, cookProcess: [CookProcess]?){
         if let context{
             let savedRecipe = RecipeModel(id: UUID().uuidString, titleImagePath: titleImagePath, title: title, createdAt: Date(), cookProcess: cookProcess)
             context.insert(savedRecipe)
         }
     }
-//    
-//    func fetchVideo(onCompletion: @escaping([VideoModel]?, Error?) -> Void){
-//        let descriptor = FetchDescriptor<VideoModel>(sortBy: [SortDescriptor<VideoModel>(\.createdAt)])
-//        
-//        if let context{
-//            do{
-//                let data = try context.fetch(descriptor)
-//                onCompletion(data, nil)
-//            }catch{
-//                onCompletion(nil, error)
-//            }
-//        }
-//    }
+
+    func fetchRecipe(onCompletion: @escaping([RecipeModel]?, Error?) -> Void){
+        let descriptor = FetchDescriptor<RecipeModel>(sortBy: [SortDescriptor<RecipeModel>(\.createdAt)])
+        
+        if let context{
+            do{
+                let data = try context.fetch(descriptor)
+                onCompletion(data, nil)
+            }catch{
+                onCompletion(nil, error)
+            }
+        }
+    }
 //    
 //    func updateVideo(videoModel: VideoModel, newTitle: String, newMemo: String){
 //        videoModel.title = newTitle

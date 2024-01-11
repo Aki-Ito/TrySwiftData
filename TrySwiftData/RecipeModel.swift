@@ -15,9 +15,9 @@ final class RecipeModel{
     var titleImagePath: String
     var title: String
     var createdAt: Date
-    var cookProcess: CookProcess
+    var cookProcess: CookProcess?
     
-    init(id: String, titleImagePath: String, title: String, createdAt: Date, cookProcess: CookProcess) {
+    init(id: String, titleImagePath: String, title: String, createdAt: Date, cookProcess: CookProcess?) {
         self.id = id
         self.titleImagePath = titleImagePath
         self.title = title

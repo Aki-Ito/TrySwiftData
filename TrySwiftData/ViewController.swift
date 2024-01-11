@@ -8,7 +8,6 @@ import SwiftData
 
 class ViewController: UIViewController {
     
-    
     @IBOutlet weak var collectionView: UICollectionView!
     public var recipeModels = [RecipeModel]()
     let fileManagerService = FileManagerService.shared
@@ -19,13 +18,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.configureCollectionView()
-        //        self.fetchData()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.viewWillAppear(true)
         self.fetchData()
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        self.viewWillAppear
+//        self.fetchData()
+//    }
     
     private func configureCollectionView(){
         collectionView.delegate = self
@@ -39,13 +38,6 @@ class ViewController: UIViewController {
     }
     
     func fetchData(){
-        //        SwiftDataService.shared.fetchRecipe { recipes, error in
-        //            guard let recipes = recipes else {return}
-        //            self.recipeModels = recipes
-        //            DispatchQueue.main.async {
-        //                self.collectionView.reloadData()
-        //            }
-        //        }
         SwiftDataService.shared.fetchRecipe { recipes, error in
             if let error{
                 print(error)
@@ -60,8 +52,8 @@ class ViewController: UIViewController {
         }
     }
     
-    private func convertToImage(path: String) -> UIImage?{
-        let data = fileManagerService.readFile(fullPath: path)
+    private func convertToImage(fileName: String) -> UIImage?{
+        let data = fileManagerService.readFile(fileName: fileName)
         if let data{
             return UIImage(data: data)
         }else{
@@ -74,9 +66,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
-        
-        cell.label.text = recipeModels[indexPath.row].title
-        cell.imageView.image = self.convertToImage(path: recipeModels[indexPath.row].titleImagePath)
+        let title = recipeModels[indexPath.row].title
+        cell.label.text = title
+        cell.imageView.image = self.convertToImage(fileName: recipeModels[indexPath.row].title)
         return cell
     }
     

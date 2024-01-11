@@ -11,11 +11,13 @@ class AddRecipeViewController: UIViewController {
     
     @IBOutlet weak var addImageButton: UIButton!
     @IBOutlet weak var titleTextField: UITextField!
+    let fileManagerService = FileManagerService.shared
+    let swiftDataService = SwiftDataService.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func tappedImageButton(_ sender: Any) {
@@ -28,10 +30,18 @@ class AddRecipeViewController: UIViewController {
     
     
     @IBAction func tappedSaveButton(_ sender: Any) {
+        
     }
     
     
     @IBAction func tappedAddProcessButton(_ sender: Any) {
+    }
+    
+    private func saveContents(){
+        guard let image = addImageButton.imageView?.image else {return}
+        let data = image.jpegData(compressionQuality: 0.2)
+        let fileName = titleTextField.text!
+        fileManagerService.saveFile(file: data!, fileName: fileName)
     }
     
 }
